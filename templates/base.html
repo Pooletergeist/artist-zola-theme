@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <!-- <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='menu.css') }}"> -->
+    <link rel="stylesheet" href="{{ get_url(path='bigstyle.css') }}">
+    {% block extra_head %}{% endblock extra_head %}
+</head>
+<body>
+    <!-- Top Banner -->
+    <header class="top-banner">
+        <div class="indented"> 
+            <div class="centered">
+                <a href="/home" class="artist-name">{{ config.extra.artist_name | default(value="Artist Name") }}</a>
+                <button class="menu-button" aria-label="Open menu">
+                    <span>Menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Backdrop, important for menu -->
+    <div class="backdrop"></div>
+
+    <!-- Slide-out Menu -->
+    <nav class="slide-menu">
+        <div class="menu-header">
+            <!-- <h2>Navigation</h2> -->
+            <button class="close-button" aria-label="Close menu">×</button>
+        </div>
+        <div class="menu-content">
+            <!-- What's New Section -->
+            <div class="menu-section">
+                <!-- <div class="menu-section-title">What's New</div> -->
+                <a href="/">What's New??</a>
+            </div>
+
+            <!-- Home Section -->
+            <div class="menu-section">
+                <!-- <div class="menu-section-title">Home</div> -->
+                <a href="/home">Home Page</a>
+            </div>
+
+            <!-- Other (Expandable) Section -->
+            <div class="menu-section expandable-section">
+                <div class="section-toggle">
+                    <span>More</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="expandable-content">
+                    {% set section = get_section(path="_index.md") %}
+                    {% for page in section.pages %}
+                        {% if page.relative_path != "home.md" %} <!-- exclude home from other options -->
+                        <a href="{{ page.permalink | safe }}">{{ page.title | default(value="Untitled") }}</a>
+                        {% endif %} 
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="indented"> 
+    {% block content %}{% endblock content %}
+    </div>
+
+    <!-- Footer with Social Links -->
+    <!-- <footer class="site-footer">
+        <div class="indented">
+            <div class="social-links">
+                {% if config.extra.social_links %}
+                    {% if config.extra.social_links.instagram %}
+                        <a href="{{ config.extra.social_links.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+                    {% endif %}
+                    {% if config.extra.social_links.twitter %}
+                        <a href="{{ config.extra.social_links.twitter }}" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
+                    {% endif %}
+                    {% if config.extra.social_links.youtube %}
+                        <a href="{{ config.extra.social_links.youtube }}" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+                    {% endif %}
+                    {% if config.extra.social_links.email %}
+                        <a href="mailto:{{ config.extra.social_links.email }}" aria-label="Email">Email</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </footer> -->
+
+    <script src="{{ get_url(path='menu.js') }}"></script>
+    {% block extra_js %}{% endblock extra_js %}
+</body>
+</html>

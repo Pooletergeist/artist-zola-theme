@@ -1,0 +1,12 @@
+<div class="soundcloud-embed">
+    <iframe 
+        width="100%" 
+        height="{{ height | default(value='166') }}" 
+        scrolling="no" 
+        frameborder="no" 
+        allow="autoplay" 
+        loading="lazy"
+        title="SoundCloud player"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track_id }}&color=%23{{ color | default(value='ff5500') | replace(from='#', to='') }}&auto_play={{ auto_play | default(value='false') }}&hide_related={{ hide_related | default(value='false') }}&show_comments={{ show_comments | default(value='true') }}&show_user={{ show_user | default(value='true') }}&show_reposts={{ show_reposts | default(value='false') }}&show_teaser={{ show_teaser | default(value='true') }}&visual={{ visual | default(value='true') }}">
+    </iframe>
+</div>

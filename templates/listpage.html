@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- <link rel="stylesheet" href="{{ get_url(path='listpage.css') }}"> -->
+<link rel="stylesheet" href="{{ get_url(path='bigstyle.css') }}">
+
+
+    <!-- Hero Section -->
+<div class="overlap">
+    {% if page.extra.hero_image %}
+    <section class="hero">
+        <img src="{{ page.extra.hero_image | default(value='/images/hero-default.jpg') }}" alt="{{ page.title }}" class="hero-image">
+        <h1 class="hero-title">{{ page.title }}</h1>
+    </section>
+    {% else %}
+        <div class="empty-block"></div>
+        <h1 class="hero-title">{{ page.title }}</h1>
+    {% endif %}
+</div>
+
+
+<!-- List Grid Section -->
+    <div class="list-grid">
+        {% for item in page.extra.list_items %}
+        <article class="list-item">
+            <img src="{{ item.image }}" alt="{{ item.title }}" class="list-item-image">
+            <div class="list-item-content">
+                <h2 class="list-item-title">{{ item.title }}</h2>
+                <p class="list-item-text">{{ item.description }}</p>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+{% endblock content %}

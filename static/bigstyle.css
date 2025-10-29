@@ -1,0 +1,844 @@
+/* HOME */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* overflow-x: hidden; */
+}
+
+.overlap {
+    margin-top: -10rem;
+}
+
+.polyptych {
+    display: flex;
+}
+
+.left-column {
+    width: 60%;
+    /* overflow: hidden; */
+}
+
+.left-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.right-column {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    /* background-size: cover;
+    background-position: center; */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.panel-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.panel-image-container img { 
+    display: block; /* changed for oscar */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* if ur adding panels u get how this works */
+.panel:nth-child(1) {
+    background: linear-gradient(135deg, #2d3436 0%, #1e272e 100%);
+  }
+.panel:nth-child(2) {
+    background: linear-gradient(135deg, #353b48 0%, #2f3640 100%);
+  }
+
+
+.panel-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    width: 100%;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+
+/* Left column hover */
+.left-column.panel:hover .panel-content {
+    transform: translate(-50%, -100%);
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+}
+
+/* Right column hover */
+.right-column .panel:hover .panel-content {
+    transform: translate(-50%, -100%);
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+}
+
+.panel-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    /* margin-bottom: 0; */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    /* display: inline-block; */
+    position: relative;
+    /* padding-bottom: 5px; */
+}
+
+/* draws the line under panel title text */
+.panel-title::after { 
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 3px;
+    background: white;
+}
+
+/* better start invis or youll see subtitle letters peeking out */
+.panel-subtitle-container { 
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.panel:hover .panel-subtitle-container {
+    opacity: 1;
+}
+
+.panel-subtitle {
+    font-size: 1.1rem;
+    color: white;
+    margin: 20px 0;   
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.panel-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: white;
+    color: #333;
+    text-decoration: none;
+    border: 3px solid white;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.panel-button:hover {
+    color: white;
+    background: black;
+    border: 3px solid white;
+}
+
+.empty-block{
+    padding: 3rem;
+}
+
+
+/* FOOTER */
+/* .site-footer {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+}
+
+.social-links a:hover {
+    opacity: 0.7;
+} */
+
+/* LANDING */
+
+
+* {
+    margin: 0; /* Remove default margins from all elements */
+    padding: 0; /* Remove default padding from all elements */
+    box-sizing: border-box; /* Include padding/border in element width calculations */
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif; /* Set site-wide font */
+    font-size: 1.2rem; /* Base text size for all content */
+  }
+  
+  
+  .continue-btn {
+    padding: 12px 30px; /* Button size/clickable area */
+    background-color: black; /* Button background */
+    color: white; /* Button text color */
+    text-decoration: none; /* Remove underline from link */
+    border: 2px solid white; /* white outline on button */
+    transition: background-color 0.3s; /* Smooth color change on hover */
+    font-size: 1.1rem;
+  }
+  
+  .continue-btn:hover {
+    background-color: white; /* Invert colors on hover */
+    color: black; /* Invert text color on hover */
+  }
+  
+  /* Two-column grid layout */
+  .image-grid {
+    display: grid; /* Enable CSS grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 30px; /* Space between grid items */
+  }
+  
+  .image-box {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Drop shadow for depth */
+  }
+  
+  /* Make images responsive */
+  .image-container img {
+    width: 100%; /* Image fills container width (scales with browser) */
+    display: block; /* Remove tiny gap below images */
+  }
+  
+  .text-content {
+    padding: 20px; /* Space around text inside boxes */
+  }
+  
+  .text-content p {
+    line-height: 1.6; /* Increase line spacing for readability */
+  }
+  
+  /* Call-to-action buttons */
+  .ghost-btn {
+    display: block; /* Make button full width */
+    text-align: center; /* Center button text */
+    margin-top: 8px; /* Space above button */
+    padding: 12px 30px; /* Button size */
+    border: 2px solid black; /* Black outline (ghost button style) */
+    color: black; /* Button text color */
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s; /* Smooth hover effect */
+    font-size: 1.1rem;
+  }
+  
+  .ghost-btn:hover {
+    background-color: black; /* Fill button on hover */
+    color: white; /* Invert text color on hover */
+  }
+  
+  /* SPICY, if 3 elements */
+  /* Every 3rd item starting from 3 (3, 6, 9, 12...) spans full width */
+  .image-box:nth-child(3n) {
+    grid-column: 1 / 3;
+  }
+  
+ 
+
+  /* LISTPAGE */
+
+  /* Hero Section */
+.hero {
+    width: 100%;
+    margin-bottom: 60px;
+    /* overlap banner */
+    position: relative;
+    z-index: 500;
+    margin-top: -6rem;
+}
+
+.hero-image {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+}
+
+/* Grid List Section */
+.list-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.list-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    min-height: 200px;
+}
+
+.list-item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.list-item-content {
+    background-color: #f5f5f5;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.list-item-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.list-item-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+
+/* MENU */
+
+/* Fix z-index stacking when menu is open */
+body.menu-open header + * {
+    z-index: auto;
+    margin-top: 0rem;
+}
+
+/* Backdrop */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 998;
+}
+
+.backdrop.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Slide-out Menu */
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 500px;
+    max-width: 90vw;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.slide-menu.is-open {
+    right: 0;
+}
+
+.menu-header h2 {
+    font-size: 1.25rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: black;
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    line-height: 1;
+}
+
+.close-button:hover {
+    opacity: 0.8;
+}
+
+.menu-content {
+    padding: 1rem 0;
+}
+
+.menu-section {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.menu-section a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: black;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.menu-section a:hover {
+    background: #f8f9fa;
+}
+
+/* Expandable section */
+.expandable-section .section-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    /* background: #ecf0f1;
+    border-left: 3px solid #95a5a6; */
+    cursor: pointer;
+    color: black;
+    /* font-size: 0.875rem; */
+    /* text-transform: uppercase; */
+    letter-spacing: 0.5px;
+}
+
+.expandable-section .section-toggle:hover {
+    background: #f8f9fa;
+}
+
+.section-toggle .arrow {
+    transition: transform 0.3s ease;
+}
+
+.expandable-section.is-expanded .arrow {
+    transform: rotate(90deg);
+}
+
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.expandable-section.is-expanded .expandable-content {
+    max-height: 500px;
+}
+
+.expandable-content a {
+    padding-left: 2.5rem;
+}
+
+
+/* STYLE */
+
+/* INTENDED FOR CONTENT PAGES re: templates/page.html */
+/* TODO: trim it prolly very unnecessary bloated rn */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+}
+
+/* YouTube shortcode styling */
+.youtube-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.youtube-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Top Banner */
+.top-banner {
+    background: #000;
+    color: #fff;
+    padding-bottom: 8rem; /* Extend the black background down */
+    top: 0;
+    z-index: 10;
+}
+
+.indented {
+    padding: 3rem 80px 0 80px
+}
+
+.centered {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.artist-name {
+    font-size: 4rem;
+    font-family: 'Allura', cursive;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  
+  .artist-name::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+  }
+  
+  .artist-name:hover::after {
+    width: 100%;
+  }
+
+.menu-button {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Hero Image Section */
+.hero-media {
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* YouTube embed styling */
+.hero-media.youtube-embed {
+    position: relative;
+    aspect-ratio: 16 / 9; /* Modern way to handle aspect ratio */
+    max-height: none;
+    margin-top: -6rem;
+}
+
+.hero-media.youtube-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-media.empty {
+    min-height: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* DEBUG VIDEO PLACEMENT */
+/* Test 1: ALL hero media gets a thick purple border */
+/* .hero-media {
+    border: 10px solid purple;
+    padding: 20px;
+    background-color: yellow;
+  } */
+  
+  /* Test 2: YouTube embeds specifically get a thick red border */
+  /* .hero-media.youtube-embed {
+    border: 10px solid red;
+    background-color: lime;
+  }
+   */
+  /* Test 3: The iframe itself gets a thick blue border */
+  /* .hero-media.youtube-embed iframe {
+    border: 10px solid blue;
+    outline: 5px dashed orange;
+  } */
+
+/* Content Section */
+.content-wrapper {
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.page-content {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Markdown-style formatting */
+.page-content h2 {
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.page-content h3 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #1a1a1a;
+}
+
+.page-content p {
+    margin-bottom: 1.5rem;
+}
+
+.page-content ul, .page-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.page-content li {
+    margin-bottom: 0.5rem;
+}
+
+.page-content a {
+    color: #667eea;
+    text-decoration: none;
+    border-bottom: 1px solid #667eea;
+    transition: color 0.3s ease;
+}
+
+.page-content a:hover {
+    color: #764ba2;
+    border-bottom-color: #764ba2;
+}
+
+.page-content blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #555;
+}
+
+.page-content code {
+    background: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.page-content pre {
+    background: #1a1a1a;
+    color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.page-content pre code {
+    background: none;
+    padding: 0;
+}
+
+
+
+/* RESIZING FOR SMALL AND MOBILE */
+@media (max-width: 768px) {
+    .hero-media {
+        width: calc(100% - 2rem);
+        margin: 1rem auto;
+    }
+
+    .artist-name {
+        font-size: 4rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .continue-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-button {
+        padding: 0.4rem 1rem;
+        font-size: 1.6rem;
+    }
+
+    .content-wrapper {
+        padding: 2rem 1.5rem;
+    }
+
+    /* .page-title {
+        font-size: 4rem;
+    } */
+
+    .page-content {
+        font-size: 1rem;
+    }
+
+    /* LANDING */
+    .image-grid {
+        display: block;
+    }
+    .image-box {
+        margin-bottom: 30px; /* Adjust this value as needed */
+    }
+    
+    /* Optional: remove margin from last item */
+    .image-box:last-child {
+        margin-bottom: 0;
+    }
+}
+
+ @media (max-width: 768px) {
+
+    .centered {
+        flex-direction: column;
+    }
+
+    .indented {
+        padding: 3rem 2rem 0 2rem;
+    }
+
+    .polyptych {
+        flex-direction: column;
+    }
+
+    .left-column {
+        width: 100%;
+    }
+    .left-column img {
+        width: 100%; 
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .right-column {
+        width: 100%; /* Full width when stacked */
+    }
+
+
+    .panel {
+        min-height: 300px;
+        flex-direction: column;
+    }
+
+    .right-column .panel{
+        display: flex;
+    }
+    
+    .panel-image-container {
+        flex: 1; 
+        overflow: hidden;
+    }
+    
+    .panel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .image-grid {
+      grid-template-columns: 1fr; /* Single column on mobile (stack boxes) */
+    }
+    
+    .continue-btn {
+      font-size: 1rem; /* Smaller button text on mobile */
+    }
+  }
+
+
+@media (max-width: 768px) {
+    .hero-image {
+        height: 250px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        margin-top: 20px;
+    }
+
+    .list-item {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .list-item-content {
+        padding: 20px;
+    }
+
+    .list-item-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .indented {
+        padding: 3rem 1.4rem 0 1.4rem;
+    }
+
+    .artist-name {
+        font-size: 2rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .menu-button {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+}

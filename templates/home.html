@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- <link rel="stylesheet" href="{{ get_url(path='home.css') }}"> -->
+
+<div class="overlap">
+  <div class="polyptych">
+  <div class="left-column panel">
+    <img 
+      src="{{ page.extra.hero_image | default(value='https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=1200&fit=crop') }}" 
+      alt="{{ page.extra.hero_alt | default(value='Mountain landscape') }}"
+    >
+    <div class="panel-content">
+      {% if page.extra.hero_panel.title %}
+        <h2 class="panel-title">{{ page.extra.hero_panel.title }}</h2>
+      {% endif %}
+      <div class="panel-subtitle-container">
+        {% if page.extra.hero_panel.subtitle %}
+          <p class="panel-subtitle">{{ page.extra.hero_panel.subtitle }}</p>
+        {% endif %}
+        {% if page.extra.hero_panel.button_link and page.extra.hero_panel.button_text %}
+          <a href="{{ page.extra.hero_panel.button_link }}" class="panel-button">
+            {{ page.extra.hero_panel.button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  
+  <div class="right-column">
+    {% if page.extra.panels %}
+      {% for panel in page.extra.panels %}
+        <div class="panel">
+          {% if panel.image %}
+            <div class="panel-image-container">
+              <img 
+                src="{{ panel.image }}" 
+                alt="{{ panel.image_alt | default(value=panel.title) }}" 
+                class="panel-image"
+              >
+            </div>
+          {% endif %}
+          
+          <div class="panel-content">
+            {% if panel.title %}
+              <h2 class="panel-title">{{ panel.title }}</h2>
+            {% endif %}
+            <div class="panel-subtitle-container">
+              {% if panel.subtitle %}
+                <p class="panel-subtitle">{{ panel.subtitle }}</p>
+              {% endif %}
+              {% if panel.button_link and panel.button_text %}
+                <a href="{{ panel.button_link }}" class="panel-button">
+                  {{ panel.button_text }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+</div>
+
+{% endblock content %}

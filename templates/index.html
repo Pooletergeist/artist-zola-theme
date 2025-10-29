@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ config.title }}</title>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:400,600,700&family=Allura&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:400,600,700&family=Allura&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="{{ get_url(path="landing.css") }}"> -->
+  <link rel="stylesheet" href="{{ get_url(path="bigstyle.css") }}">
+</head>
+<body>
+  <!-- Top Banner -->
+      <header class="top-banner">
+        <div class="indented"> 
+            <div class="centered">
+              <a href="/home" class="artist-name">{{ config.extra.artist_name | default(value="Artist Name") }}</a>
+              <a href="{{ section.extra.main_site_url | default(value="/") }}" class="continue-btn">CONTINUE TO SITE</a>
+            </div>
+        </div>
+    </header>
+
+
+
+  <!-- Main Content -->
+  <main class="content">
+    <div class="indented">
+      <div class="overlap">
+      <div class="image-grid">
+        {% for item in section.extra.featured_items %}
+        <div class="image-box {% if item.large %}large{% endif %}">
+          <div class="image-container">
+            <img src="{{ item.image }}" alt="{{ item.alt_text }}">
+          </div>
+          <div class="text-content">
+            <div>
+              <p>{{ item.description }}</p>
+              <b>{{ item.highlight }}</b>
+            </div>
+            <a href="{{ item.link_url }}" class="ghost-btn">{{ item.link_text }}</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  </main>
+</body>
+</html>

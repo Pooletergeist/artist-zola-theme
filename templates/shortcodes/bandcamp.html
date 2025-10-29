@@ -1,0 +1,12 @@
+<div class="bandcamp-embed">
+    <iframe 
+        style="border: 0; width: 100%; height: {{ height | default(value='120') }}px;" 
+        src="https://bandcamp.com/EmbeddedPlayer/{{ type }}={{ id }}/size={{ size | default(value='large') }}/bgcol={{ bgcol | default(value='ffffff') | replace(from='#', to='') }}/linkcol={{ linkcol | default(value='0687f5') | replace(from='#', to='') }}/tracklist={{ tracklist | default(value='false') }}/artwork={{ artwork | default(value='small') }}/transparent={{ transparent | default(value='true') }}/" 
+        seamless
+        loading="lazy"
+        title="Bandcamp player">
+        {% if link_url and link_text %}
+        <a href="{{ link_url }}">{{ link_text }}</a>
+        {% endif %}
+    </iframe>
+</div>
