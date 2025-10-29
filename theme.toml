@@ -1,13 +1,10 @@
 name = "artist"
 description = "A elegant theme for artists and musicians"
 license = "MIT"
-homepage = "https://github.com/yourusername/your-theme-name"
+homepage = "https://github.com/pooletergeist/artist-zola-theme"
 min_version = "0.17.0"
-demo = ""
+demo = "example-site-oscar.pages.dev"
 
-[author]
-name = "Your Name"
-homepage = "https://yoursite.com"
 
 [extra]
-# Document any required config.toml settings here
+
